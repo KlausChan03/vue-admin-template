@@ -91,6 +91,19 @@ export const constantRoutes = [
   },
 
   {
+    path: '/components',
+    component: Layout,
+    children: [
+      {
+        path: 'back-to-top',
+        name: 'BackToTopDemo',
+        component: () => import('@/views/components-demo/back-to-top'),
+        meta: { title: 'Back To Top' }
+      }
+    ]
+  },
+
+  {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
