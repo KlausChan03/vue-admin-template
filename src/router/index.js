@@ -54,7 +54,18 @@ export const constantRoutes = [
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
-
+  {
+    path: '/form',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Form',
+        component: () => import('@/views/form/index'),
+        meta: { title: 'Form', icon: 'form' }
+      }
+    ]
+  },
   {
     path: '/example',
     component: Layout,
@@ -76,33 +87,33 @@ export const constantRoutes = [
       }
     ]
   },
-
   {
-    path: '/form',
+    path: '/temp-demo',
     component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
-      }
-    ]
-  },
-
-  {
-    path: '/components',
-    component: Layout,
+    redirect: '/temp-demo/count-up',
+    name: 'Demo',
+    meta: { title: 'Demo', icon: 'example' },
     children: [
       {
         path: 'back-to-top',
         name: 'BackToTopDemo',
-        component: () => import('@/views/components-demo/back-to-top'),
+        component: () => import('@/views/temp-demo/back-to-top'),
         meta: { title: 'Back To Top' }
+      },
+      {
+        path: 'count-up',
+        name: 'CountUpDemo',
+        component: () => import('@/views/temp-demo/count-up'),
+        meta: { title: 'Count up' }
+      },
+      {
+        path: 'count',
+        name: 'CountDemo',
+        component: () => import('@/views/temp-demo/count'),
+        meta: { title: 'Count' }
       }
     ]
   },
-
   {
     path: '/nested',
     component: Layout,

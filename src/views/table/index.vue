@@ -18,6 +18,11 @@
           {{ scope.row.title }}
         </template>
       </el-table-column>
+      <el-table-column label="Birthday">
+        <template slot-scope="scope">
+          {{ scope.row.birthday }}
+        </template>
+      </el-table-column>
       <el-table-column label="Author" width="110" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.author }}</span>
@@ -36,6 +41,7 @@
       <el-table-column align="center" prop="created_at" label="Display_time" width="200">
         <template slot-scope="scope">
           <i class="el-icon-time" />
+          <svg-icon icon-class="password" />
           <span>{{ scope.row.display_time }}</span>
         </template>
       </el-table-column>
@@ -45,7 +51,7 @@
 
 <script>
 import { getList } from '@/api/table'
-
+// import _ from 'lodash'
 export default {
   filters: {
     statusFilter(status) {
@@ -68,9 +74,15 @@ export default {
   },
   methods: {
     fetchData() {
+      console.log(getList)
       this.listLoading = true
       getList().then(response => {
-        this.list = response.data.items
+        console.log(response.data.items)
+        const _first = this._.head(response.data.items)
+        const _last = this._.last(response.data.items)
+        const _all = this._.concat([_first], [_last])
+        this.list = _all
+        console.log(_first)
         this.listLoading = false
       })
     }

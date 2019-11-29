@@ -1,5 +1,5 @@
 <template>
-  <div class="components-container">
+  <div class="components-container" style="padding:15px;">
     <aside>
       When the page is scrolled to the specified position, the Back to Top button appears in the lower right corner
     </aside>
