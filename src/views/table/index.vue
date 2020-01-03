@@ -1,10 +1,6 @@
 <template>
   <div class="app-container">
-    <el-form>
-      <el-form-item>
-        <el-button  size="mini" @click="export2Excel">导出</el-button>
-      </el-form-item>
-    </el-form>
+    <el-button  size="mini" @click="export2Excel" class="mb8">导出</el-button>
     <el-table
       v-loading="listLoading"
       :data="list"
@@ -19,10 +15,7 @@
       <el-table-column label="Title">
         <template slot-scope="scope">{{ scope.row.title }}</template>
       </el-table-column>
-      <el-table-column label="Birthday">
-        <template slot-scope="scope">{{ scope.row.birthday }}</template>
-      </el-table-column>
-      <el-table-column label="Author" width="110" align="center">
+      <el-table-column label="Author" width="140" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.author }}</span>
         </template>
@@ -38,7 +31,6 @@
       <el-table-column align="center" prop="created_at" label="Display_time" width="200">
         <template slot-scope="scope">
           <i class="el-icon-time" />
-          <svg-icon icon-class="password" />
           <span>{{ scope.row.display_time }}</span>
         </template>
       </el-table-column>
@@ -78,8 +70,12 @@ export default {
         // const _last = this._.last(response.data.items);
         // const _all = this._.concat([_first], [_last]);
         // this.list = _all;
-        this.list = response.data.items;
-        this.listLoading = false;
+
+        this.list = response.data.items
+        this.list = _.sortBy(this.list, "display_time", function(o){
+          return -o.status;
+        });
+        this.listLoading = false
       });
     },
     formatJson(filterVal, jsonData) {
@@ -92,7 +88,6 @@ export default {
         const tHeader = [
           "ID",
           "Title",
-          "Birthday",
           "Author",
           "Pageviews",
           "Status",
@@ -101,7 +96,6 @@ export default {
         const filterVal = [
           "id",
           "title",
-          "birthday",
           "author",
           "pageviews",
           "status",
@@ -109,7 +103,7 @@ export default {
         ];
         const list = this.list;
         const data = this.formatJson(filterVal, list);
-        export_json_to_excel(tHeader, data, "普通数据表格");
+        export_json_to_excel(tHeader, data, "普通数据表格")
       })
     }
   }

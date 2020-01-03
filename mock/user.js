@@ -12,13 +12,14 @@ const users = {
   'admin-token': {
     roles: ['admin'],
     introduction: 'I am a super administrator',
-    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+    avatar: 'https://klauslaura.cn/wp-content/uploads/2018/08/微信图片_20180808232215.jpg',
     name: 'Super Admin'
   },
   'editor-token': {
     roles: ['editor'],
     introduction: 'I am an editor',
-    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+    // avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+    avatar: 'https://klauslaura.cn/wp-content/uploads/2017/08/20170809150312-e1502359156353.jpg',
     name: 'Normal Editor'
   }
 }
@@ -31,6 +32,7 @@ export default [
     response: config => {
       const { username } = config.body
       const token = tokens[username]
+      console.log(tokens[username])
 
       // mock error
       if (!token) {

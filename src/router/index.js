@@ -92,7 +92,7 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/temp-demo/count-up',
     name: 'Demo',
-    meta: { title: 'Demo', icon: 'example' },
+    meta: { title: 'Personal Demo', icon: 'example' },
     children: [
       {
         path: 'back-to-top',
@@ -177,7 +177,8 @@ export const constantRoutes = [
     component: Layout,
     children: [
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
+        path: 'https://klauslaura.cn',
+        // path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
         meta: { title: 'External Link', icon: 'link' }
       }
     ]

@@ -29,6 +29,7 @@ Object.defineProperty(Vue.prototype, '_', { value: lodash })
  * please remove it before going online! ! !
  */
 import { mockXHR } from '../mock'
+console.log(process.env.NODE_ENV)
 if (process.env.NODE_ENV === 'production') {
   mockXHR()
 }

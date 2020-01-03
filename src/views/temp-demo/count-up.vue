@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;">
+  <div style="width: calc(100vw - 210px); height: 100vh; display: flex; justify-content: center; align-items: center;">
     <countTo :startVal='startVal' :endVal='endVal' :duration='3000'></countTo>
   </div>
 </template>
