@@ -92,7 +92,7 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/temp-demo/count-up',
     name: 'Demo',
-    meta: { title: 'Personal Demo', icon: 'example' },
+    meta: { title: 'Personal Demo', icon: 'demo' },
     children: [
       {
         path: 'back-to-top',
@@ -111,6 +111,12 @@ export const constantRoutes = [
         name: 'CountDemo',
         component: () => import('@/views/temp-demo/count'),
         meta: { title: 'Count' }
+      },
+      {
+        path: 'roughViz',
+        name: 'roughVizDemo',
+        component: () => import('@/views/temp-demo/roughViz'),
+        meta: { title: 'RoughViz' }
       }
     ]
   },

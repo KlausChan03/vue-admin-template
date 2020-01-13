@@ -18,6 +18,8 @@ import '@/permission' // permission control
 import lodash from 'lodash'
 Object.defineProperty(Vue.prototype, '_', { value: lodash })
 
+import { RoughDonut } from "vue-roughviz"
+
 // import { Message } from 'element-ui'
 
 /**
@@ -38,6 +40,8 @@ if (process.env.NODE_ENV === 'production') {
 // Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
 Vue.use(ElementUI)
+
+Vue.use(RoughDonut)
 
 Vue.config.productionTip = false
 // Vue.prototype.$message = Message
