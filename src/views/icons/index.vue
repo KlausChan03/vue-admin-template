@@ -2,7 +2,8 @@
   <div class="icons-container">
     <el-tabs type="border-card">
       <el-tab-pane label="Icons">
-        <div>
+
+        <el-row>
           <h3>系统图标</h3>
           <div v-for="item of svgIcons" :key="item">
             <el-tooltip placement="top">
@@ -13,9 +14,9 @@
               </div>
             </el-tooltip>
           </div>
-        </div>
+        </el-row>
         <el-divider></el-divider>
-        <div>
+        <el-row>
           <h3>博客图标</h3>
           <div v-for="item of wpIcons" :key="item">
             <el-tooltip placement="top">
@@ -26,7 +27,7 @@
               </div>
             </el-tooltip>
           </div>
-        </div>
+        </el-row>
       </el-tab-pane>
       <el-tab-pane label="Element-UI Icons">
         <div v-for="item of elementIcons" :key="item">
